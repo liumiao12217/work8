@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		html,
+		body {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		.box {
+			width: 100%;
+		}
+
+		.header {
+			background-color: black;
+			width: 100%;
+			height: 60px;
+		}
+
+		.nav {
+			width: 1200px;
+			margin: 0 auto;
+			height: 60px;
+			display: flex;
+			background-color: black;
+
+		}
+
+		.nav ul {
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			font-size: 18px;
+		}
+
+		.nav ul li a {
+			color: white;
+			text-decoration: none;
+		}
+
+		.nav .ul1 li {
+			margin-right: 25px;
+
+		}
+
+		.nav ul li:hover a {
+			color: yellow;
+		}
+
+		.nav .ul2 li {
+			background: url(images/all.png);
+			background-position: 100px -20px;
+			margin-right: 20px;
+		}
+
+		.ul2 li a {
+			font-size: 14px;
+			margin-left: 19px;
+		}
+
+		.nav .ul3 li {
+			line-height: 30px;
+			font-size: 14px;
+			margin-right: 20px;
+		}
+
+		.nav .search {
+			margin-top: 20px;
+			/* width: 200px; */
+			color: grey;
+			background: url(images/搜索.png) no-repeat;
+		}
+
+		.content {
+			width: 1200px;
+			margin: 30px auto;
+			/* border: 1px solid red; */
+			height: 600px;
+			position: relative;
+		}
+
+		.leftMusic {
+			display: inline-block;
+			width: 700px;
+			/* height: 600px; */
+		}
+
+		.rightMusic {
+			display: inline-block;
+			width: 470px;
+			margin-left: 20px;
+			/* height: 600px; */
+			/* border: 1px solid blue; */
+			position: absolute;
+			top: 40px;
+		}
+
+		.musicTop {
+			/* width:460px;
+			margin:0 auto; */
+			border-bottom: 1px solid rgb(245, 245, 245);
+
+		}
+
+		.leftMusic .title {
+			text-align: center;
+			font-size: 18px;
+		}
+
+		.leftMusic .text {
+			color: rgb(210, 164, 48);
+			margin-right: 10px;
+		}
+
+		.leftMusic .lyrics {
+			text-align: center;
+			font-size: 14px;
+		}
+
+		.xiyangImg {
+			width: 250px;
+			margin-left: 80px;
+			border: 1px solid grey;
+			border-radius: 50%;
+			/* transform: rotate(360deg); */
+			animation: rotation 4s linear infinite;
+			-moz-animation: rotation 4s linear infinite;
+			-webkit-animation: rotation 4s linear infinite;
+			-o-animation: rotation 4s linear infinite;
+		}
+
+		@keyframes rotation {
+			from {
+				-webkit-transform: rotate(0deg);
+			}
+
+			to {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+
+		.player {
+			width: 100%;
+			/* height: 200px; */
+		}
+
+		.playerMid {
+			float: left;
+			width: 450px;
+			height: 45px;
+			overflow: hidden;
+			position: relative;
+			margin-left: 30px;
+			margin-top: 20px;
+		}
+
+		#play {
+			float: left;
+			display: inline-block;
+			width: 40px;
+			height: 45px;
+			background: url(images/all1.jpg) no-repeat;
+			background-position: -162px 0px;
+			margin-right: 20px;
+		}
+
+		.playerMid #prograssBar {
+			float: left;
+			position: relative;
+			width: 250px;
+			height: 4px;
+			background: url(images/prograssBg.png);
+			margin: 20px 10px 0 0;
+			display: inline;
+			background-color: #9999;
+		}
+
+		.playerMid .prograssBar {
+			width: 0px;
+			height: 4px;
+			background: #ffcd2d;
+		}
+
+		.playerMid #wp_bufBar {
+			width: 0px;
+			height: 4px;
+			background: url(images/prograssBg.png);
+		}
+
+		.playerMid #wp_processBtn {
+			width: 10px;
+			height: 10px;
+			background: url(images/all.png) 0 -128px;
+			position: absolute;
+			top: -3px;
+		}
+
+		#wp_playTime {
+			/* float: left; */
+			height: 40px;
+			font-size: 12px;
+			line-height: 40px;
+			/* color: #fff; */
+			display: inline-block
+		}
+
+		#wp_mute {
+			display: inline-block;
+			width: 26px;
+			height: 20px;
+			background: url(images/all1.jpg) no-repeat;
+			background-position: -65px 0px;
+			position: absolute;
+			margin-left: 10px;
+			top: 12px
+		}
+
+		.upload {
+			width: 200px;
+			height: 40px;
+			margin: 0 auto;
+			background-color: rgb(89, 88, 145);
+			margin-top: 100px;
+			border-radius: 25px;
+			text-align: center;
+			line-height: 40px;
+		}
+
+		.upload #xiazai {
+			display: inline-block;
+			width: 19px;
+			height: 17px;
+			background: url(images/all1.jpg) no-repeat;
+			background-position: 0px 0px;
+		}
+
+		.row-2 {
+			width: 180px;
+			padding-left: 15px;
+			font-size: 13px;
+			margin: 10px 20px 20px 0px;
+			position: relative;
+			height: 50px;
+			color: #fff;
+			/* line-height: 20px; */
+			/* text-align: center; */
+			border-radius: 5px;
+			background: rgb(222, 222, 234);
+			display: inline-block;
+		}
+
+		.row-2 p {
+			display: inline-block;
+			margin: 0px;
+		}
+
+		.row-2 a {
+			text-decoration: none;
+			position: absolute;
+			right: 0;
+			bottom: 5px;
+			;
+		}
+
+		.row-2::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 20px;
+			left: -6px;
+			border-top: 6px solid transparent;
+			border-bottom: 6px solid transparent;
+			border-right: 6px solid rgb(222, 222, 234);
+		}
+
+		.comment {
+			width: 800px;
+			height: 500px;
+			margin: 20px 0px 0px 300px;
+		}
+
+		.comment .commentTop {
+			height: 40px;
+			border-bottom: 1px solid rgb(231, 231, 231);
+			line-height: 40px;
+		}
+
+		.commentMid .comMidLeft {
+			margin: 10px 10px 0px 5px;
+			display: inline-block;
+			position: relative;
+			top: -90px;
+		}
+
+		.commentMid .comMidRight {
+			display: inline-block;
+		}
+
+		.comMidRight input {
+			border: 1px solid rgb(231, 231, 231);
+			width: 730px;
+			height: 100px;
+			margin-top: 20px;
+		}
+
+		.commit {
+			display: inline-block;
+			font-size: 12px;
+			position: absolute;
+			right: 0px;
+		}
+
+		#commitBtn {
+			width: 70px;
+			background: rgb(253, 186, 0);
+			color: white;
+			border: none;
+
+		}
+
+		#commentList {
+			width: 760px;
+			height: 270px;
+			margin: 20px auto;
+		}
+
+		.listRight {
+			display: inline-block;
+			width: 710px;
+			height: 80px;
+			margin-left: 5px;
+			position: relative;
+		}
+
+		.listName {
+			color: rgb(217, 151, 3);
+			margin-bottom: 7px;
+
+		}
+
+		.listCom {
+			height: 20px;
+			font-size: 13px;
+			margin-bottom: 10px;
+		}
+
+		.listTime {
+			font-size: 12px;
+			position: relative;
+		}
+
+		.list {
+			width: 100%;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			border-bottom: 1px solid rgb(231, 231, 231);
+		}
+
+		.share {
+			position: absolute;
+			right: 0px;
+			color: black;
+			font-size: 14px;
+		}
+
+		.delet {
+			position: absolute;
+			right: 50px;
+		}
+
+		.like {
+			position: absolute;
+			right: 0px;
+			/* background: url(images/like.png) no-repeat; */
+		}
+
+		.like img {
+			width: 15px;
+			height: 15px;
+			float: left;
+		}
+		#barcon{
+			text-align: center;
+		}
+		#barcon a{
+			text-decoration: none;
+			margin-left: 5px;
+		}
+		#barcon a:active{
+			color:white;
+		}
+		#barcon div{
+			display: inline-block;
+			margin-right: 10px;
+			width:20px;
+			height: 20px;
+			background-color: rgb(237,237,237);
+			border-radius: 50%;
+			text-align: center;
+			line-height: 20px;
+		}
+		#barcon div:active{
+			background-color: rgb(239,189,16);
+		}
+		#barcon .current{
+			background: rgb(239,189,16);
+		}
+		.current a{
+			color:white;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<div class="header">
+			<div class="nav">
+				<img src="images/酷狗.jpg" style="height: 50px;margin-top: 5px;">
+				<ul class="ul1">
+					<li><a href="#">首页</a></li>
+					<li><a href="#">榜单</a></li>
+					<li><a href="#">歌手</a></li>
+					<li><a href="#">下载酷我客户端</a></li>
+				</ul>
+				<ul class="ul2">
+					<li><a href="#">美女秀</a></li>
+					<li><a href="#">酷我耳机</a></li>
+					<li><a href="#">vip会员</a></li>
+					<li><a href="#">i听</a></li>
+				</ul>
+				<ul class="ul3">
+					<li><a href="#">更多服务</a></li>
+					<li><a href="#">登录</a></li>
+				</ul>
+				<div class="search">
+					找到好音乐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="leftMusic">
+				<div class="musicTop">
+					<p class="title">喜羊羊</p>
+					<div style="text-align: center;margin-bottom: 10px;">
+						<span class="name">专辑：</span>
+						<span class="text">儿歌大全</span>
+						<span class="name">歌手：</span>
+						<span class="text">华语群星</span>
+						<span style="margin-right: 10px;">分享</span>
+						<span class="text">
+							<img src="images/pinglun.jpg" />
+							评论</span>
+					</div>
+
+					<div style="text-align: center;font-size: 14px;margin-bottom: 10px;">
+						上传时间：2015-10-02 歌曲来源：民大相思湖网球社
+					</div>
+				</div>
+				<div>
+					<p class="lyrics"> 在所有天气拥有叫人大笑的力量</p>
+					<p class="lyrics">虽然我只是羊</p>
+					<p class="lyrics">虽然我只是羊</p>
+					<p class="lyrics">喜羊羊 美羊羊 懒羊羊 沸羊羊</p>
+					<p class="lyrics">慢羊羊 软绵绵 红太狼 灰太狼</p>
+
+				</div>
+			</div>
+			<div class="rightMusic">
+				<img src="images/xiyangyang.jpg" class="xiyangImg" />
+				<div class="player">
+					<audio autoplay="autoplay" id="mymusic">
+						<source src="./images/3.mp3" type="audio/mp3">
+					</audio>
+					<div class="playerMid">
+						<div id="play"></div>
+						<div id="prograssBar">
+							<div id="wp_bufBar">
+								<div class="prograssBar" id="wp_processBar"></div>
+								<a href="##" class="schedule_btn" id="wp_processBtn" style="left: 0;"></a>
+							</div>
+						</div>
+						<div id="wp_playTime">
+							<p style="display: inline;">00:00</p>
+						</div>
+						<div class="sound" id="wp_mute">
+						</div>
+					</div>
+				</div>
+				<div class="upload">
+					<div id="xiazai"></div>
+					<!-- <img src="images/all1.jpg" /> -->
+					免费下载这首歌
+				</div>
+				<div>
+					<div style="display: inline-block;margin: 20px 10px 20px 50px;position:relative;top:10px">
+						<img src="images/新郎.png" style="width: 50px;height: 50px;" />
+					</div>
+					<div class="row-2">
+						<p style="margin-bottom: 5px;">郭子仪---H5班</p>
+						<p style="color: black;">
+							<img src="images/music.png" style="position: relative;top:5px" />
+							喜羊羊与灰太狼
+						</p>
+						<a href="#">去现场></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="comment">
+			<div class="commentTop">
+				<span style="margin-left: 10px;">评论</span>
+				<span style="font-size: 12px;">1703条评论</span>
+			</div>
+			<div class="commentMid">
+				<div class="comMidLeft">
+					<img src="images/新郎.png" />
+				</div>
+				<div class="comMidRight">
+					<input id="inp" placeholder="分享你的音乐见解" />
+					<div style="margin-top: 20px;position: relative;">
+						<img src="images/笑脸.png" />
+						<div class="commit">
+							<span>已输入0个字</span>
+							<button id="commitBtn">提交</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="commentBot">
+				<div class="commentTop">
+					<span style="margin-left: 10px;">精彩评论</span>
+				</div>
+				<div id="commentList">
+
+				</div>
+				<div id="barcon" name="barcon"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var mymusic = document.getElementById('mymusic');
+	var playBtn = document.getElementById('play');
+	var playTime = document.getElementById('wp_playTime');
+	var processBar = document.getElementById('wp_processBar');
+	var processBtn = document.getElementById('wp_processBtn');
+	var mute = document.getElementById('wp_mute');
+	var btn = document.getElementById('commitBtn');
+	var input = document.getElementById('inp')
+	var list = document.getElementById('commentList');
+	var number=0;
+	playBtn.onclick = function () {
+
+		console.log(mymusic.paused);
+		let time = mymusic.duration;//获取音频的总时长
+		let timer = 0;
+		if (mymusic.paused) {
+			//改变图标
+			playBtn.style.backgroundPosition = "-207px -48px"
+
+			//播放音乐
+			mymusic.play();
+			//定时器修改播放时间
+			timer = setInterval(function () {
+				processBar.style.width = (mymusic.currentTime / time) * 100 + 'px';
+				processBtn.style.left = (mymusic.currentTime / time) * 100 + 'px';
+				if (mymusic.currentTime < 10) {
+					playTime.innerHTML = "0:0" + Math.floor(mymusic.currentTime);
+				} else if (mymusic.currentTime < 60) {
+					playTime.innerHTML = "0:" + Math.floor(mymusic.currentTime);
+				} else {
+					var minet = parseInt(mymusic.currentTime / 60);
+					var sec = mymusic.currentTime - minet * 60;
+					if (sec < 10) {
+						playTime.innerHTML = "0" + minet + ":" + "0" + parseInt(sec);
+					}
+					else {
+						playTime.innerHTML = "0" + minet + ":" + parseInt(sec);
+					}
+				}
+			}, 100)
+		} else {
+			playBtn.style.backgroundPosition = "-162px 0px"
+			mymusic.pause();
+			clearInterval(timer);
+		}
+	}
+
+	//静音
+	mute.onclick = function () {
+		if (mymusic.muted) {
+			mute.style.backgroundPosition = '-65px 0px'
+			mymusic.muted = false;
+		} else {
+			mute.style.backgroundPosition = '-40px 0px'
+			mymusic.muted = true;
+		}
+	}
+
+	var comments = JSON.parse(localStorage.getItem('location')) ? JSON.parse(localStorage.getItem('location')) : [];
+	btn.onclick = function () {
+		var time = new Date().toLocaleDateString().replace(/\//g, '-') + " " + new Date().getHours() + ":" + new Date().getMinutes() + ':' + new Date().getSeconds();
+		comments.push({ time: time, content: input.value });
+		localStorage.setItem('location', JSON.stringify(comments));
+		var data = JSON.parse(localStorage.getItem('location'));
+		var div = document.createElement("div");
+		var right = document.createElement('div');
+		var img = document.createElement('img');
+		var com = document.createElement('div');
+		var name = document.createElement('div');
+		var timer = document.createElement('div');
+		var share = document.createElement('span');
+		var delet = document.createElement('span');
+		var like = document.createElement('span');
+		var likeImg = document.createElement('img');
+		likeImg.src = "images/like.png";
+		like.innerHTML = "回复";
+		delet.innerHTML = "删除  163";
+		share.innerHTML = "分享";
+		name.innerHTML = "郭子仪";
+		img.src = "images/新郎.png";
+		like.appendChild(likeImg);
+		com.innerHTML = data[data.length - 1].content;
+		timer.innerHTML = data[data.length - 1].time;
+		share.setAttribute('class', 'share');
+		like.setAttribute('class', 'like');
+		delet.setAttribute('class', 'delet');
+		right.setAttribute('class', 'listRight');
+		name.setAttribute('class', 'listName');
+		timer.setAttribute('class', 'listTime');
+		com.setAttribute('class', 'listCom');
+		div.setAttribute('class', 'list');
+		timer.appendChild(like);
+		timer.appendChild(delet);
+		name.appendChild(share);
+		right.appendChild(name);
+		right.appendChild(com);
+		right.appendChild(timer);
+		div.appendChild(img);
+		div.appendChild(right);
+		list.appendChild(div);
+		var num=list.children.length;
+		number=num;
+		goPage(1, 3,num);
+	}
+	window.onload = function () {
+		var data = JSON.parse(localStorage.getItem('location'));
+		for (let i = 0; i <data.length; i++) {
+			var div = document.createElement("div");
+			var right = document.createElement('div');
+
+			var img = document.createElement('img');
+			var com = document.createElement('div');
+			var name = document.createElement('div');
+			var timer = document.createElement('div');
+			var share = document.createElement('span');
+			var delet = document.createElement('span');
+			var like = document.createElement('span');
+			var likeImg = document.createElement('img');
+			likeImg.src = "images/like.png";
+			like.innerHTML = "回复";
+			delet.innerHTML = "删除  163";
+			share.innerHTML = "分享";
+			name.innerHTML = "郭子仪";
+			img.src = "images/新郎.png";
+			like.appendChild(likeImg);
+			com.innerHTML = data[i].content;
+			timer.innerHTML = data[i].time;
+			share.setAttribute('class', 'share');
+			like.setAttribute('class', 'like');
+			delet.setAttribute('class', 'delet');
+			right.setAttribute('class', 'listRight');
+			name.setAttribute('class', 'listName');
+			timer.setAttribute('class', 'listTime');
+			com.setAttribute('class', 'listCom');
+			div.setAttribute('class', 'list');
+			timer.appendChild(like);
+			timer.appendChild(delet);
+			name.appendChild(share);
+			right.appendChild(name);
+			right.appendChild(com);
+			right.appendChild(timer);
+			div.appendChild(img);
+			div.appendChild(right);
+			list.appendChild(div);
+			var num=list.children.length;
+			number=num;
+			goPage(1, 3,num);
+		}
+
+	}
+	
+	function goPage(pno, psize,num) {
+		var n=num?num:number;
+		console.log(n);
+		var itable = document.getElementById("commentList");//通过ID找到表格
+		var totalPage = 0;//总页数
+		var pageSize = psize;//每页显示行数
+		//总共分几页
+		if (n / pageSize > parseInt(n / pageSize)) {
+			totalPage = parseInt(n / pageSize) + 1;
+		} else {
+			totalPage = parseInt(n / pageSize);
+		}
+		var currentPage = pno;//当前页数
+		var startRow = (currentPage - 1) * pageSize + 1;//开始显示的行  1
+		var endRow = currentPage * pageSize;//结束显示的行   15
+		endRow = (endRow > n) ? n : endRow;
+		//遍历显示数据实现分页
+		for (var i = 1; i < (n + 1); i++) {
+			var irow = itable.children[i - 1];
+			if (i >= startRow && i <= endRow) {
+				irow.style.display = "block";
+			} else {
+				irow.style.display = "none";
+			}
+		}
+		var tempStr = "";
+        if (currentPage > 1) {
+            tempStr += "<div><a href=\"#\" onClick=\"goPage(" + (currentPage - 1) + "," + psize + ")\"> < </a></div>"
+            for (var j = 1; j <= totalPage; j++) {
+							if(j==currentPage){
+                tempStr +="<div class='current'><a href=\"#\" onClick=\"goPage(" + j + "," + psize + ")\">" + j + "&nbsp;&nbsp;&nbsp;</a></div>"
+							}else{
+                tempStr +="<div><a href=\"#\" onClick=\"goPage(" + j + "," + psize + ")\">" + j + "&nbsp;&nbsp;&nbsp;</a></div>"
+							}
+            }
+        } else {
+            tempStr += " <div> < </div>";
+            for (var j = 1; j <= totalPage; j++) {
+							if(j==currentPage){
+                tempStr += "<div class='current'><a href=\"#\" onClick=\"goPage(" + j + "," + psize + ")\">" + j + "&nbsp;&nbsp;&nbsp;</a></div>"
+
+							}else{
+
+                tempStr += "<div><a href=\"#\" onClick=\"goPage(" + j + "," + psize + ")\">" + j + "&nbsp;&nbsp;&nbsp;</a></div>"
+							}
+            }
+        }
+        if (currentPage < totalPage) {
+            tempStr += "<div><a href=\"#\" onClick=\"goPage(" + (currentPage + 1) + "," + psize + ")\"> > </a></div>";
+            for (var j = 1; j <= totalPage; j++) {
+							
+            }
+        } else {
+            tempStr += " <div> > </div>";
+            for (var j = 1; j <= totalPage; j++) {
+            }
+        }
+		document.getElementById("barcon").innerHTML = tempStr;
+	}
+
+</script>
+
+</html>
